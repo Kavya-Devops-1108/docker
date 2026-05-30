@@ -11,7 +11,7 @@ services:
       - mynetwork
 
   application:
-    image: kavy318506/appimage:app
+    image: kavya318506/appimage:app
     ports:
       - "1111:8080"
     deploy:
