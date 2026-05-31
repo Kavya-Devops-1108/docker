@@ -2,16 +2,26 @@ version: "3.9"
 
 services:
   devopsdb:
-    image: kavya318506/dbimage:app
+    image: kavya318506/db:db
     ports:
       - "3306:3306"
     deploy:
       replicas: 3
+      resources:
+         limits:
+            cpus: 2
+            memory: 125M
+         reservations:
+            cpus: 1
+            memory: 64M
+    environment:
+      user: kavya
+      pass: cred@123
     networks:
       - mynetwork
 
   application:
-    image: kavya318506/appimage:app
+    image: kavya318506/app:app
     ports:
       - "1111:8080"
     deploy:
